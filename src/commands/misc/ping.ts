@@ -13,7 +13,7 @@ module.exports = {
     // little trolling.
     if (interaction.member.displayName == "yxz") {
       await interaction.reply(
-        `:ping_pong: Pong! Latency: ${Math.round(interaction.client.ws.ping)}0 s`
+        `:ping_pong: Pong! Latency: ${Math.round(interaction.client.ws.ping)}0ms`
       );
     } else {
       await interaction.reply(
