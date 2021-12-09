@@ -4,7 +4,7 @@ const fetch = require("node-fetch");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("cat")
-    .setDescription("Gets a random cat picture.")
+    .setDescription("Get random cat pictures.")
     .addNumberOption((option) =>
       option
         .setName("amount")

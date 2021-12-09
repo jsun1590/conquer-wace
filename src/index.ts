@@ -1,12 +1,14 @@
 export {};
+import chalk from 'chalk';
 const glob = require("glob");
 const { Client, Collection, Intents } = require("discord.js");
-const dotenv = require("dotenv").config();
+require("dotenv").config();
 
 const token = process.env.token;
 const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
+
 
 client.commands = new Collection();
 
@@ -62,7 +64,7 @@ client.on(
 );
 
 client.once("ready", () => {
-  console.log("Bot Ready.");
+  console.log("✅ " + chalk.green("Bot ready!"));
 });
 
 client.login(token);
