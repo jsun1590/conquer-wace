@@ -78,7 +78,7 @@ client.on(
       .then((channel: { send: (arg0: string) => any }) => {
         if (message.member.id == "915125691463401474") return;
         channel.send(
-`\`Type:\` Deleted message
+`\`Type:\` 🗑️ Deleted message
 \`Time deleted:\` ${message.createdAt}
 \`Username:\` ${message.member.displayName}
 \`ID:\` ${message.member.id}
@@ -108,7 +108,7 @@ client.on(
         if (newMessage.member.id == "915125691463401474") return;
 
         channel.send(
-`\`Type:\` Modified message
+`\`Type:\` 📝 Modified message
 \`Time modified:\` ${newMessage.editedAt}
 \`Username:\` ${newMessage.member.displayName}
 \`ID:\` ${newMessage.member.id}
