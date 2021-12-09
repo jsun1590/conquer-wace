@@ -39,7 +39,7 @@ module.exports = {
       });
 
     const form = new URLSearchParams();
-    //TODO REMOVE API KEY
+
     form.append("api_dev_key", process.env.api_dev_key!);
     form.append("api_option", "paste");
     form.append("api_paste_code", allMessages);
