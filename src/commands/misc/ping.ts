@@ -15,7 +15,7 @@ module.exports = {
       await interaction.reply(
         `:ping_pong: Pong! Latency: ${Math.round(
           interaction.client.ws.ping
-        )}0 s`
+        )}0ms`
       );
     } else {
       await interaction.reply(
