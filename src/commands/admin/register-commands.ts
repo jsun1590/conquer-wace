@@ -22,6 +22,9 @@ module.exports = {
     const commands = [];
     for (const file of commandFiles) {
       const command = require(`../${file}`);
+      if (file.startsWith("admin/")) {
+        command.data["description"] = "[Admin Only] " + command.data["description"];
+      }
       commands.push(command.data.toJSON());
     }
 
