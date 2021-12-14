@@ -42,7 +42,7 @@ const embedData: object = {
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("countdown")
-    .setDescription("Get the link to the source code"),
+    .setDescription("Get ATAR countdowns."),
   async execute(interaction: { reply: (arg0: object) => void; }) {
     interaction.reply(embedData);
   },
