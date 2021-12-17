@@ -16,7 +16,7 @@ module.exports = {
   async execute(interaction: { reply: (arg0: object) => void }) {
     let now: any = new moment();
     let wace_2022 = diff_calc(now, new moment("2022-11-01"));
-    let results_2022 = diff_calc(now, new moment("2021-12-20"));
+    let results_2022 = diff_calc(now, new moment("2021-12-19"));
 
     let embedData: object = {
       embeds: [
