@@ -1,5 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { URLSearchParams } from "url";
+import { Interaction } from "../../interfaces"
 const fetch = require("node-fetch");
 const dotenv = require("dotenv").config();
 
@@ -20,11 +21,7 @@ module.exports = {
         .setRequired(true)
     ),
 
-  async execute(interaction: {
-    options: { getChannel: (arg0: string) => any };
-    member: { roles: { cache: any } };
-    reply: (arg0: string) => any;
-  }) {
+  async execute(interaction: Interaction) {
     const channel = interaction.options.getChannel("channel");
 
     const allMessages = await channel.messages

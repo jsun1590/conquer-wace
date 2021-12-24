@@ -1,6 +1,6 @@
-export {};
 import { channelMention } from "@discordjs/builders";
 import chalk from "chalk";
+import { Interaction } from "./interfaces";
 const glob = require("glob");
 const { Client, Collection, Intents } = require("discord.js");
 require("dotenv").config();
@@ -22,12 +22,7 @@ for (const file of commandFiles) {
 
 client.on(
   "interactionCreate",
-  async (interaction: {
-    isCommand: () => any;
-    commandName: any;
-    member: { roles: { cache: any } };
-    reply: (arg0: any) => any;
-  }) => {
+  async (interaction: Interaction) => {
     if (!interaction.isCommand()) return;
 
     const command = client.commands.get(interaction.commandName);

@@ -1,4 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
+import { Interaction } from "../../interfaces"
+
 const moment = require("moment");
 var momentDurationFormatSetup = require("moment-duration-format");
 
@@ -13,10 +15,9 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("countdown")
     .setDescription("Get ATAR countdowns."),
-  async execute(interaction: { reply: (arg0: object) => void }) {
+  async execute(interaction: Interaction) {
     let now: any = new moment();
     let wace_2022 = diff_calc(now, new moment("2022-11-01"));
-    let results_2022 = diff_calc(now, new moment("2021-12-19"));
 
     let embedData: object = {
       embeds: [
@@ -25,11 +26,6 @@ module.exports = {
           description: "2022 WACE exam schedules not yet released.",
           color: 16711680,
           fields: [
-            {
-              name: "Time Until 2021 ATAR Results",
-              value: results_2022,
-            },
-            ,
             {
               name: "Time Until 2022 WACE Exams",
               value: wace_2022,

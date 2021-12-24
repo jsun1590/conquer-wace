@@ -1,4 +1,5 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
+import { Interaction } from "../../interfaces"
 const glob = require("glob");
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
@@ -12,10 +13,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("register-commands")
     .setDescription("Register slash commands with the Discord API."),
-  async execute(interaction: {
-    member: { roles: { cache: any } };
-    reply: (arg0: string) => any;
-  }) {
+  async execute(interaction: Interaction) {
     const rest = new REST({ version: "9" }).setToken(token);
 
     const commandFiles = glob.sync("**/*.ts", { cwd: "src/commands" });

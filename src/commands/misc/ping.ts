@@ -1,15 +1,12 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
+import { Interaction } from "../../interfaces"
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("ping")
     .setDescription("Test the bot's latency."),
-  async execute(interaction: {
-    member: { displayName: string; id: string };
-    reply: (arg0: string) => any;
-    client: { ws: { ping: number } };
-  }) {
-    console.log(interaction.member.displayName + " pinged!");
+  async execute(interaction: Interaction) {
+    console.log(`${interaction.member.displayName} pinged!`);
     // little trolling (yix).
     if (interaction.member.id == "291151071806750720") {
       await interaction.reply(

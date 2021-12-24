@@ -1,5 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 const fetch = require("node-fetch");
+import { Interaction } from "../../interfaces"
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -11,10 +12,7 @@ module.exports = {
         .setDescription("Number of cat pics. Max 5.")
         .setRequired(false)
     ),
-  async execute(interaction: {
-    options: { getNumber: (arg0: string) => any };
-    reply: (arg0: any) => any;
-  }) {
+  async execute(interaction: Interaction) {
     let amount = interaction.options.getNumber("amount");
     if (!amount) {
       amount = 1;
