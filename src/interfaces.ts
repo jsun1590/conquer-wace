@@ -7,7 +7,6 @@ export interface Interaction {
     roles: {
       cache: any;
     };
-    
   };
   options: {
     getNumber: (arg0: string) => any;
