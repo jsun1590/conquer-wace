@@ -4,19 +4,20 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "clear; nodemon src/index.ts"
+    "dev": "clear; nodemon --ignore src/data/ src/index.ts",
+    "prod": "clear; nodemon --ignore src/data/ -x 'ts-node src/index.ts || touch src/index.ts'"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jsun1590/epic_bot.git"
+    "url": "git+https://github.com/jsun1590/conquer-wace.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jsun1590/epic_bot/issues"
+    "url": "https://github.com/jsun1590/conquer-wace/issues"
   },
-  "homepage": "https://github.com/jsun1590/epic_bot#readme",
+  "homepage": "https://github.com/jsun1590/conquer-wace#readme",
   "dependencies": {
     "@discordjs/builders": "^0.8.2",
     "@discordjs/rest": "^0.1.0-canary.0",
@@ -29,6 +30,7 @@
     "moment-duration-format": "^2.3.2",
     "node-fetch": "^2.6.6",
     "nodemon": "^2.0.15",
+    "time-ago": "^0.2.1",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
   },

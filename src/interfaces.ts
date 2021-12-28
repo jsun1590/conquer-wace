@@ -11,11 +11,38 @@ export interface Interaction {
   options: {
     getNumber: (arg0: string) => any;
     getChannel: (arg0: string) => any;
+    getUser: (arg0: string) => any;
+    getString: (arg0: string) => any;
   };
   reply: (arg0: any) => any;
   client: {
     ws: {
       ping: number;
     };
+  };
+}
+
+export interface Message {
+  delete(): any;
+  createdTimestamp: number;
+  author: any;
+  embeds: any;
+  editedAt: any;
+  member: {
+    id: string;
+    displayName: string;
+  };
+  createdAt: number;
+  channel: any;
+  content: any;
+}
+
+export interface Channel {
+  send: (arg0: string) => any;
+}
+
+export interface Client {
+  channels: {
+    fetch: (arg0: string) => Promise<Channel>;
   };
 }
