@@ -7,14 +7,14 @@ const fs = require("fs");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("limit-embeds")
-    .setDescription("[WIP] Set the frequency of embeds a user can send.")
+    .setDescription("Limit the frequency of embeds a user can send.")
     .addUserOption((option) =>
       option.setName("user").setDescription("Target user.").setRequired(true)
     )
     .addStringOption((option) =>
       option
         .setName("frequency")
-        .setDescription("frequency of sending gifs.")
+        .setDescription("Frequency of embeds.")
         .setRequired(true)
     ),
 
