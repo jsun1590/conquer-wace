@@ -61,6 +61,6 @@ module.exports = {
     content.push(userObject);
     let data = JSON.stringify(content, null, 2);
     fs.writeFileSync("src/data/users.json", data);
-    await interaction.reply(`${userName} has been limited to 1 embed every ${frequency}`);
+    await interaction.reply(`${userName} has been limited to 1 embed every ${frequency}.`);
   },
 };
