@@ -58,10 +58,10 @@ client.on("interactionCreate", async (interaction: Interaction) => {
 
 // Logging
 client.on("messageCreate", async (message: Message) => {
+  newLog(client, message);
   if (message.embeds.length != 0) {
     limitEmbed(client, message);
   }
-  newLog(client, message);
 });
 
 client.on("messageDelete", async (message: Message) => {
