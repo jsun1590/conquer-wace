@@ -5,6 +5,7 @@ module.exports = {
     client.channels
       .fetch("918489544570077225")
       .then((channel: Channel) => {
+        if (message.member == null) return; else
         if (message.member.id == "915125691463401474") return;
         channel.send(
           `\`Type:\` 🆕 New message
@@ -13,6 +14,7 @@ module.exports = {
 \`User ID:\` ${message.member.id}
 \`Channel:\` ${message.channel}
 \`Message:\` ${message.content}
+\`Attachments:\` ${message.attachments.map((obj: { url: any; }) => obj.url).join('\r\n')}
 _ _`
         );
       })
@@ -31,6 +33,7 @@ _ _`
 \`User ID:\` ${message.member.id}
 \`Channel:\` ${message.channel}
 \`Message:\` ${message.content}
+\`Attachments:\` ${message.attachments.map((obj: { url: any; }) => obj.url)}
 _ _`
         );
       })
@@ -54,7 +57,9 @@ _ _`
 \`User ID:\` ${newMessage.member.id}
 \`Channel:\` ${newMessage.channel}
 \`Original message:\` ${oldMessage.content}
+\`Original Attachments:\` ${oldMessage.attachments.map((obj: { url: any; }) => obj.url)}
 \`Updated message:\` ${newMessage.content}
+\`Updated Attachments:\` ${newMessage.attachments.map((obj: { url: any; }) => obj.url)}
 _ _`
         );
       })

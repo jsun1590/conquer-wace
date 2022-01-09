@@ -23,6 +23,7 @@ export interface Interaction {
 }
 
 export interface Message {
+  attachments: any;
   delete(): any;
   createdTimestamp: number;
   author: any;
