@@ -14,16 +14,19 @@ module.exports = {
     ),
   async execute(interaction: Interaction) {
     let amount = interaction.options.getNumber("amount");
-    if (!amount) {
+    if (!amount || amount < 1) {
       amount = 1;
-    }
+    } else
+      if (amount > 5) {
+        await interaction.reply("heck off nougat!");
+      }
     // TODO Make give min/max limits to
     let out = "";
     for (let i = 0; i < amount; i++) {
-      let { file } = await fetch("https://aws.random.cat/meow").then(
+      let url = await fetch("https://api.thecatapi.com/v1/images/search").then(
         (response: { json: () => string }) => response.json()
-      );
-      out += file + "\n";
+      )
+      out += url[0]["url"] + "\n";
     }
 
     await interaction.reply(out);
