@@ -16,13 +16,18 @@ module.exports = {
     let amount = interaction.options.getNumber("amount");
     if (!amount) {
       amount = 1;
+    } else
+    if (amount > 5) {
+      await interaction.reply("Sorry, the max number of cat images is 5 at a time.");
     }
-    // TODO Make give min/max limits to
+
     let out = "";
     for (let i = 0; i < amount; i++) {
       let { file } = await fetch("https://aws.random.cat/meow").then(
         (response: { json: () => string }) => response.json()
-      );
+      ).catch((error) => {
+        console.log(error)
+      });;
       out += file + "\n";
     }
 
