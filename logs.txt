@@ -1,0 +1,10 @@
+
+> conquer_wace@1.0.0 dev
+> clear; nodemon --ignore src/data/ src/index.ts
+
+[H[J[33m[nodemon] 2.0.16[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: ts,json[39m
+[32m[nodemon] starting `ts-node src/index.ts`[39m
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
