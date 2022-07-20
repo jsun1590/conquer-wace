@@ -1,14 +1,14 @@
 import chalk from "chalk";
 import { Channel, Interaction, Message } from "./interfaces";
 const glob = require("glob");
-const { Client, Collection, Intents } = require("discord.js");
+const { Client, Collection, GatewayIntentBits, InteractionType } = require("discord.js");
 const { newLog, updateLog, deleteLog } = require("./utils/logging");
 const { limitEmbed } = require("./utils/limit-embeds-listener");
 require("dotenv").config();
 
 const token = process.env.token;
 const client = new Client({
-  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages],
 });
 
 client.commands = new Collection();
@@ -22,7 +22,7 @@ for (const file of commandFiles) {
 }
 
 client.on("interactionCreate", async (interaction: Interaction) => {
-  if (!interaction.isCommand()) return;
+  if (interaction.type !== InteractionType.ApplicationCommand) return;
 
   const command = client.commands.get(interaction.commandName);
 

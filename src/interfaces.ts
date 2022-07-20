@@ -1,5 +1,5 @@
 export interface Interaction {
-  isCommand: () => any;
+  type: any;
   commandName: string;
   member: {
     displayName: string;
